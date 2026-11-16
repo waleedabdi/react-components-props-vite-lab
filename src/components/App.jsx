@@ -1,13 +1,15 @@
-import React from "react";
 import blogData from "../data/blog";
+import About from "./About";
+import ArticleList from "./ArticleList";
+import Header from "./Header";
 
-console.log(blogData);
-
-function App() {
+// Root component: passes blog data to the header, about panel, and article list.
+function App({ blog = blogData }) {
   return (
     <div className="App">
-      You're on your own from here! Follow the deliverables; test things out in
-      the browser as you write your code; and good luck!
+      <Header name={blog.name} />
+      <About image={blog.image} about={blog.about} />
+      <ArticleList posts={blog.posts} />
     </div>
   );
 }
